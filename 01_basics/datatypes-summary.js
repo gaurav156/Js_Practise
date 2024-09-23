@@ -41,3 +41,28 @@ console.log(typeof anotherId); // symbol
 console.log(typeof bigNumber); // bigint
 
 // https://262.ecma-international.org/5.1/#sec-11.4.3
+
+// ------------Memory - Stack & Heap
+
+/*
+Primitive - Stack -> Copy is returned -> Pass by value
+Non-Primite - Heap -> Reference is returned -> Pass by Reference
+*/
+
+let email = "gaurav@google.com"
+let newEmail = email // Primitive -> Copy is assigned -> Pass by value
+newEmail = "user@google.com"
+console.log(email) // not changed - gaurav@google.com
+console.log(newEmail) // user@google.com
+
+let userOne = {
+    email: "gaurav@google.com",
+    name: "Gaurav"
+}
+
+let userTwo = userOne; // Non-primitive -> Reference is passed -> Pass by reference
+
+userTwo.email = "user@yahoo.com" // changes email of userOne as well
+
+console.log(userOne.email)
+console.log(userTwo.email)
